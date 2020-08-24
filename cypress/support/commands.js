@@ -117,7 +117,6 @@ Cypress.Commands.add('addIngredientsToList', (listName, ingredientsArr) => {
         cy.contains(ingredient)
         .click()
     });
-
     cy
         .contains(ingredientsArr[0])
         .should('exist')
@@ -127,7 +126,6 @@ Cypress.Commands.add('addIngredientsToList', (listName, ingredientsArr) => {
     cy
         .contains(ingredientsArr[2])
         .should('exist')
-    
     
     // Go back to startpage (2 clicks on back button)
     cy
@@ -171,7 +169,7 @@ Cypress.Commands.add('addCurrentRecipeToNewShoppingList', (listName) => {
     .get('.rn-1habvwh > .rn-1loqt21 > .rn-11yh6sk > .rn-1272l3b').click() 
     .get('.rn-1habvwh > .rn-1loqt21 > .rn-11yh6sk > .rn-1272l3b').click() 
 
-    // Assert that newly created list extist, containing at least one item
+    // Assert that the created list extist, containing at least one item
     cy.contains('Handlingslista').click()
     cy.contains(listName).click()
     cy.contains('Ta bort')
