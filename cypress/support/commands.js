@@ -1,5 +1,5 @@
 Cypress.Commands.add('verifyRecipe', (category, recipe) => {
-    //Navigate to page /shopping_list 
+    //Navigate to page /categories 
     cy
         .contains('Recept', { timeout: 10000 })
         .click()
