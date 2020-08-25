@@ -28,6 +28,7 @@ Cypress.Commands.add('verifyRecipe', (category, recipe) => {
     cy
         .get('.rn-fzspga > .rn-13yce4e')
         .should('have.text', recipe)
+    
 })
 
 /*
@@ -259,4 +260,8 @@ Cypress.Commands.add('deleteShoppingList', (listName) => {
 Cypress.Commands.add('verifyImageOnRecipePage', (imageURL) => {
     cy.get('.rn-16y2uox > .rn-1272l3b')
     .should('have.attr', 'src', imageURL)
+})
+
+Cypress.Commands.add('verifyTextOnPage', (textArr) => {
+    textArr.forEach(text => cy.contains(text))
 })
