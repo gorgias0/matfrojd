@@ -28,6 +28,8 @@ describe('Handlingslista', () => {
 
         //Todo or not todo, thats the question
     xit('sends shopping list as email - TT3-2 AC-5', () => {
+        //kanske bara kolla om denna existerar:
+        //img src="./static/media/share.f5fa6948.png"
     })
 
     it('deletes shopping list - TT3-2 AC-6', () => {
