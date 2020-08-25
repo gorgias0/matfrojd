@@ -13,7 +13,7 @@ describe('Handlingslista', () => {
         cy.addIngredientsToList('Test_list', ['Potatis', 'Banan', 'Aprikoser'])
     })
 
-    it.only('adds recipe ingredients to shopping list - TT3-2 AC-3', () => {
+    it('adds recipe ingredients to shopping list - TT3-2 AC-3', () => {
         cy.verifyRecipe('sängkantsmeny', 'Smoothie med variation')
         cy.addCurrentRecipeToNewShoppingList('Recipe_shopping_list')
         cy.verifyTextOnPage(['Banan', 'Yoghurt', 'Florsocker'])
@@ -26,10 +26,9 @@ describe('Handlingslista', () => {
     })
 
         //Todo or not todo, thats the question
-    xit('sends shopping list as email - TT3-2 AC-5', () => {
-        //kanske bara kolla om denna existerar:
-        //img src="./static/media/share.f5fa6948.png"
-        //should.exist - should.not.be.disabled - should.be.visable...???
+    it('sends shopping list as email - TT3-2 AC-5', () => {
+        cy.createShoppingList('Test_list')
+        cy.emailShoppingList('Test_list')
     })
 
     it('deletes shopping list - TT3-2 AC-6', () => {

@@ -215,10 +215,34 @@ Cypress.Commands.add('removeIngredient', (listName, ingridient) => {
         .get('.rn-1habvwh > .rn-1loqt21 > .rn-11yh6sk > .rn-1272l3b').click() 
         .get('.rn-1habvwh > .rn-1loqt21 > .rn-11yh6sk > .rn-1272l3b').click() 
 
-    //Assert startpage
+    // Assert startpage
     cy
         .get('.rn-fzspga > .rn-13yce4e')
         .should('have.text', 'Matfröjd Start')
+})
+
+/*
+*************************************************************************************************
+ */
+
+Cypress.Commands.add('emailShoppingList', (listName) => {
+    // Navigate to /shopping_list
+    cy
+        .contains('Handlingslista')
+        .click()
+
+    // Select list {listName}
+    cy
+        .contains(listName)
+        .click()
+
+    // Assert email button
+    cy
+        .get('.rn-1loqt21 > :nth-child(1) > .rn-1g7fiml > .rn-1272l3b')
+        .should('exist')
+        //.and('be.visible') <--- nope 
+        .and('not.be.disabled') //gör vad?
+        .and('have.attr', 'src', './static/media/share.f5fa6948.png')
 })
 
 /*
