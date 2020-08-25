@@ -28,7 +28,6 @@ Cypress.Commands.add('verifyRecipe', (category, recipe) => {
     cy
         .get('.rn-fzspga > .rn-13yce4e')
         .should('have.text', recipe)
-    
 })
 
 /*
@@ -118,15 +117,6 @@ Cypress.Commands.add('addIngredientsToList', (listName, ingredientsArr) => {
         cy.contains(ingredient)
         .click()
     });
-    cy
-        .contains(ingredientsArr[0])
-        .should('exist')
-    cy
-        .contains(ingredientsArr[1])
-        .should('exist')
-    cy
-        .contains(ingredientsArr[2])
-        .should('exist')
     
     // Go back to startpage (2 clicks on back button)
     cy

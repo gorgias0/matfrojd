@@ -63,4 +63,5 @@ describe('Recept', () => {
         cy.verifyImageOnRecipePage('http://admin.matfrojd.com/images/164.jpg')
         cy.verifyTextOnPage(['Florsocker', 'Gräddfil', 'gröt'])
     })
+    
 })

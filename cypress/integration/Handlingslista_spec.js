@@ -25,7 +25,6 @@ describe('Handlingslista', () => {
         cy.removeIngredient('Test_list', 'Banan')
     })
 
-        //Todo or not todo, thats the question
     it('sends shopping list as email - TT3-2 AC-5', () => {
         cy.createShoppingList('Test_list')
         cy.emailShoppingList('Test_list')
@@ -38,5 +37,4 @@ describe('Handlingslista', () => {
         cy.deleteShoppingList('List2')
     })
 
-    
 })
