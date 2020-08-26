@@ -6,7 +6,7 @@ describe('Recept', () => {
 
     // Kategori: sängkantsmeny
 
-    it.only('has recipe Smoothie med variation', () => {
+    it('has recipe Smoothie med variation', () => {
         cy.verifyRecipe('sängkantsmeny', 'Smoothie med variation')
         cy.verifyImageOnRecipePage('http://admin.matfrojd.com/images/131.jpg')
         cy.verifyIngredientAndAmount(['Banan', 'Blåbär', 'Florsocker'])
