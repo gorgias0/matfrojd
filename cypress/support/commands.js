@@ -28,6 +28,7 @@ Cypress.Commands.add('verifyRecipe', (category, recipe) => {
     cy
         .get('.rn-fzspga > .rn-13yce4e')
         .should('have.text', recipe)
+        
 })
 
 /*
@@ -276,6 +277,15 @@ Cypress.Commands.add('verifyImageOnRecipePage', (imageURL) => {
     .should('have.attr', 'src', imageURL)
 })
 
-Cypress.Commands.add('verifyTextOnPage', (textArr) => {
-    textArr.forEach(text => cy.contains(text))
+
+Cypress.Commands.add('verifyIngredientAndAmount', (textArr) => {
+    textArr.forEach(text => cy.contains(text).next().should(($div) => {
+        const text = $div.text()
+        expect(text).to.have.length.of.at.least(1)
+    }));
 })
+
+/* Cypress.Commands.add('verifyTextOnPage', (textArr) => {
+    textArr.forEach(text => cy.contains(text))   
+}) */
+
