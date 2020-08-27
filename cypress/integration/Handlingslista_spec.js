@@ -2,13 +2,14 @@ describe('Handlingslista', () => {
 
     beforeEach(() => {
         cy.visit('/?dev')
+        cy.pause()
     })
 
     it('creates shopping list - TT3-2 AC-1', () => {
        cy.createShoppingList('Test_list')
     })
 
-    it('adds ingredienses to shopping list - TT3-2 AC-2', () => {
+    it('adds ingredients to shopping list - TT3-2 AC-2', () => {
         cy.createShoppingList('Test_list')
         cy.addIngredientsToList('Test_list', ['Potatis', 'Banan', 'Aprikoser'])
     })
@@ -16,10 +17,10 @@ describe('Handlingslista', () => {
     it('adds recipe ingredients to shopping list - TT3-2 AC-3', () => {
         cy.verifyRecipe('sängkantsmeny', 'Smoothie med variation')
         cy.addCurrentRecipeToNewShoppingList('Recipe_shopping_list')
-        cy.verifyTextOnPage(['Banan', 'Yoghurt', 'Florsocker'])
+        cy.verifyIngredientAndAmount(['Banan', 'Yoghurt', 'Florsocker'])
     })
 
-    it('removes ingredintses from shopping list - TT3-2 AC-4', () => {
+    it('removes ingredients from shopping list - TT3-2 AC-4', () => {
         cy.createShoppingList('Test_list')
         cy.addIngredientsToList('Test_list', ['Potatis', 'Banan', 'Aprikoser'])
         cy.removeIngredient('Test_list', 'Banan')

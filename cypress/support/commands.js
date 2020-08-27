@@ -277,7 +277,13 @@ Cypress.Commands.add('verifyImageOnRecipePage', (imageURL) => {
     .should('have.attr', 'src', imageURL)
 })
 
-
+ /**
+  * Skakig metod som failar om någon ingrediens heter 
+  * samma sak som (del av) receptnamnet, eller något annat på sidan. 
+  * Case-sensitive, dvs: 
+  * 'Banan' och 'Banan' = fail
+  * 'Banan' och 'banan' = pass
+  */
 Cypress.Commands.add('verifyIngredientAndAmount', (textArr) => {
     textArr.forEach(text => cy.contains(text).next().should(($div) => {
         const text = $div.text()

@@ -2,6 +2,7 @@ describe('Recept', () => {
 
     beforeEach(() => {
         cy.visit('/?dev')
+        cy.pause()
     })
 
     // Kategori: sängkantsmeny
@@ -12,7 +13,7 @@ describe('Recept', () => {
         cy.verifyIngredientAndAmount(['Banan', 'Blåbär', 'Florsocker'])
     })
 
-    it('has recipe Mockadrink med Banan', () => {
+    it('has recipe Mockadrink med banan', () => {
         cy.verifyRecipe('sängkantsmeny', 'Mockadrink med banan')
         cy.verifyImageOnRecipePage('http://admin.matfrojd.com/images/316.jpg')
         cy.verifyIngredientAndAmount(['Banan', 'Strösocker', 'Snabbkaffepulver'])
@@ -41,12 +42,12 @@ describe('Recept', () => {
     it('has recipe Basilikamarinerad rostbiff med risotto', () => {
         cy.verifyRecipe('lunch/Middag', 'Basilikamarinerad rostbiff med risotto')
         cy.verifyImageOnRecipePage('http://admin.matfrojd.com/images/367.jpg')
-        cy.verifyIngredientAndAmount(['matfett', 'Kapris', 'Basilika'])
+        cy.verifyIngredientAndAmount(['matfett', 'Kapris', 'Schalottenlök'])
     })
 
     // Kategori: resträtter 
 
-    it('has recipe Ost- och skinkpaj', () => {
+    xit('has recipe Ost- och skinkpaj', () => {
         cy.verifyRecipe('resträtter', 'Ost- och skinkpaj')
         cy.verifyImageOnRecipePage('http://admin.matfrojd.com/images/348.jpg')
         cy.verifyIngredientAndAmount(['Purjolök', 'Mjölk', 'Rökt kött'])
@@ -55,13 +56,13 @@ describe('Recept', () => {
     it('has recipe Fiskpudding', () => {
         cy.verifyRecipe('resträtter', 'Fiskpudding')
         cy.verifyImageOnRecipePage('http://admin.matfrojd.com/images/146.jpg')
-        cy.verifyIngredientAndAmount(['matfett', 'Ägg', 'Fisk'])
+        cy.verifyIngredientAndAmount(['matfett', 'Ägg', 'Salt'])
     })
 
     it('has recipe Frutti med citruston och bär', () => {
         cy.verifyRecipe('resträtter', 'Frutti med citruston och bär')
         cy.verifyImageOnRecipePage('http://admin.matfrojd.com/images/164.jpg')
-        cy.verifyIngredientAndAmount(['Florsocker', 'Gräddfil', 'gröt'])
+        cy.verifyIngredientAndAmount(['Florsocker', 'Gräddfil', 'Vaniljsocker'])
     })
     
 })
