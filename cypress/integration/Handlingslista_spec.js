@@ -2,10 +2,9 @@ describe('Handlingslista', () => {
 
     beforeEach(() => {
         cy.visit('/?dev')
-        cy.pause()
     })
 
-    it('creates shopping list - TT3-2 AC-1', () => {
+    it('creates shopping list - T3-2 AC-T1', () => {
        cy.createShoppingList('Test_list')
     })
 
