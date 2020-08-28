@@ -1,3 +1,5 @@
+const backButton = '.rn-1habvwh > .rn-1loqt21 > .rn-11yh6sk > .rn-1272l3b';
+
 Cypress.Commands.add('verifyRecipe', (category, recipe) => {
     //Navigate to page /categories 
     cy
@@ -30,10 +32,6 @@ Cypress.Commands.add('verifyRecipe', (category, recipe) => {
         .should('have.text', recipe)
         
 })
-
-/*
-*************************************************************************************************
- */
 
 Cypress.Commands.add('createShoppingList', (listName) => {
     //Navigate to page /shopping_list 
@@ -70,15 +68,9 @@ Cypress.Commands.add('createShoppingList', (listName) => {
         .should('exist')
 
     //Go back to start page
-    cy
-        .get('.rn-1habvwh > .rn-1loqt21 > .rn-11yh6sk > .rn-1272l3b')
-        .click() 
+    cy.get(backButton).click()
+
  })
-
-
-/*
-*************************************************************************************************
- */
 
 Cypress.Commands.add('addIngredientsToList', (listName, ingredientsArr) => {
     // Navigate to /shopping_list 
@@ -119,20 +111,16 @@ Cypress.Commands.add('addIngredientsToList', (listName, ingredientsArr) => {
         .click()
     });
     
-    // Go back to startpage (2 clicks on back button)
-    cy
-    .get('.rn-1habvwh > .rn-1loqt21 > .rn-11yh6sk > .rn-1272l3b').click() 
-    .get('.rn-1habvwh > .rn-1loqt21 > .rn-11yh6sk > .rn-1272l3b').click() 
+    // Go back to startpage
+    cy.get(backButton).click()
+    cy.get(backButton).click()
+
 
     //Assert startpage
     cy
         .get('.rn-fzspga > .rn-13yce4e')
         .should('have.text', 'Matfröjd Start')
 })
-
-/*
-*************************************************************************************************
- */
 
 Cypress.Commands.add('addCurrentRecipeToNewShoppingList', (listName) => {
     // Select shopping cart
@@ -156,20 +144,15 @@ Cypress.Commands.add('addCurrentRecipeToNewShoppingList', (listName) => {
         .click()
 
     //Go back to start page
-    cy
-    .get('.rn-1habvwh > .rn-1loqt21 > .rn-11yh6sk > .rn-1272l3b').click() 
-    .get('.rn-1habvwh > .rn-1loqt21 > .rn-11yh6sk > .rn-1272l3b').click() 
-    .get('.rn-1habvwh > .rn-1loqt21 > .rn-11yh6sk > .rn-1272l3b').click() 
+    cy.get(backButton).click()
+    cy.get(backButton).click()
+    cy.get(backButton).click()
 
     // Assert that the created list extist, containing at least one item
     cy.contains('Handlingslista').click()
     cy.contains(listName).click()
     cy.contains('Ta bort')
 })
-
-/*
-*************************************************************************************************
- */
 
 Cypress.Commands.add('removeIngredient', (listName, ingridient) => {
     // Navigate to /shopping_list 
@@ -202,19 +185,14 @@ Cypress.Commands.add('removeIngredient', (listName, ingridient) => {
         .should('not.exist')
 
     // Go back to startpage (2 clicks on back button)
-    cy
-        .get('.rn-1habvwh > .rn-1loqt21 > .rn-11yh6sk > .rn-1272l3b').click() 
-        .get('.rn-1habvwh > .rn-1loqt21 > .rn-11yh6sk > .rn-1272l3b').click() 
+    cy.get(backButton).click()
+    cy.get(backButton).click()
 
     // Assert startpage
     cy
         .get('.rn-fzspga > .rn-13yce4e')
         .should('have.text', 'Matfröjd Start')
 })
-
-/*
-*************************************************************************************************
- */
 
 Cypress.Commands.add('emailShoppingList', (listName) => {
     // Navigate to /shopping_list
@@ -235,10 +213,6 @@ Cypress.Commands.add('emailShoppingList', (listName) => {
         .and('not.be.disabled') //gör vad?
         .and('have.attr', 'src', './static/media/share.f5fa6948.png')
 })
-
-/*
-*************************************************************************************************
- */
 
 Cypress.Commands.add('deleteShoppingList', (listName) => {
     //Navigate to /shopping_list 
@@ -262,9 +236,69 @@ Cypress.Commands.add('deleteShoppingList', (listName) => {
 
     //Go back to start page
     cy
-        .get('.rn-1habvwh > .rn-1loqt21 > .rn-11yh6sk > .rn-1272l3b')
-        .click() 
+        .get(backButton)
+        .click()
+
 }) 
+
+Cypress.Commands.add('cookRecipe', (category, recipe) => {
+    cy.verifyRecipe(category, recipe)
+     
+     // Select Laga mat
+    cy
+        .contains('Laga mat')
+        .click()
+    
+        // Check all the cooking step boxes    
+    cy
+        .get('.rn-1x0uki6 > :nth-child(2) > :nth-child(1) > :nth-child(1) > .rn-1awozwy')
+        .parent()
+        .parent()
+        .click( { multiple: true} )
+        .nextAll()
+        .click({ multiple: true })
+    
+    // Assert greeting
+    cy  
+        .contains('Smaklig måltid')
+
+    //back to startpage?? why?
+
+})
+
+Cypress.Commands.add('addRecipeToFavorites', (category, recipe) => {
+    cy.verifyRecipe(category, recipe)
+    
+     // Select Favorites (heart symbol)
+    cy
+        .get('.rn-1awozwy > :nth-child(1) > :nth-child(1) > .rn-1loqt21 > .rn-61z16t.rn-bnwqim')
+        .click()
+    
+    // Back to start page
+    cy.get(backButton).click()
+    cy.get(backButton).click()
+    cy.get(backButton).click()
+})
+
+Cypress.Commands.add('verifyFavorite', (recipe, imageURL) => {
+    // Select Favoriter
+    cy
+        .contains('Favoriter')
+        .click()
+
+    // Verify existence of recipe and image on page
+    cy
+        .contains(recipe)
+        .parent()
+        .prev()
+        .children()
+        .children('img')
+        .should('have.attr', 'src', imageURL)
+
+    //Back to startpage
+    cy.get(backButton).click()
+
+ })
 
 /*
 *************************************************************************************************
@@ -272,7 +306,7 @@ Cypress.Commands.add('deleteShoppingList', (listName) => {
 *************************************************************************************************
  */
 
-Cypress.Commands.add('verifyImageOnRecipePage', (imageURL) => {
+Cypress.Commands.add('verifyRecipeImage', (imageURL) => {
     cy.get('.rn-16y2uox > .rn-1272l3b')
     .should('have.attr', 'src', imageURL)
 })
