@@ -1,0 +1,403 @@
+{
+	"info": {
+		"_postman_id": "43c40857-f7f5-49be-8e07-f6973cb5c40b",
+		"name": "Matfröjd",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getRecipes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "342f3226-2b73-44d2-be1e-d1225a5a88a2",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 5 seconds\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(5000);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"recipes array contains more than 50 items\", function () {\r",
+							"    pm.expect(jsonData.recipes.length).to.be.above(50);\r",
+							"});\r",
+							"pm.test(\"recipes array 5 has an id as number\", function () {\r",
+							"    pm.expect(jsonData.recipes[5].id).to.be.a('number');\r",
+							"});\r",
+							"pm.test(\"recipes array 5 has a name as string\", function () {\r",
+							"    pm.expect(jsonData.recipes[5].name).to.be.a('string');\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+					},
+					{
+						"key": "DNT",
+						"value": "1"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Origin",
+						"value": "https://matfrojd.com"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-site"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Referer",
+						"value": "https://matfrojd.com/"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "sv-SE,sv;q=0.9,en-US;q=0.8,en;q=0.7"
+					}
+				],
+				"url": {
+					"raw": "https://admin.matfrojd.com/clientGet.php?function=getRecipes",
+					"protocol": "https",
+					"host": [
+						"admin",
+						"matfrojd",
+						"com"
+					],
+					"path": [
+						"clientGet.php"
+					],
+					"query": [
+						{
+							"key": "function",
+							"value": "getRecipes"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getRecipeCategories",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "89ac3c8d-f753-4c79-832d-5bafae158444",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 5 seconds\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(5000);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"cathegories array contains more than 50 items\", function () {\r",
+							"    pm.expect(jsonData.length).to.be.above(50);\r",
+							"});\r",
+							"pm.test(\"cathegories array 5 has an id as number\", function () {\r",
+							"    pm.expect(jsonData[5].id).to.be.a('number');\r",
+							"});\r",
+							"pm.test(\"cathegories array 5 has a name as string\", function () {\r",
+							"    pm.expect(jsonData[5].name).to.be.a('string');\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+					},
+					{
+						"key": "DNT",
+						"value": "1"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Origin",
+						"value": "https://matfrojd.com"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-site"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Referer",
+						"value": "https://matfrojd.com/"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "sv-SE,sv;q=0.9,en-US;q=0.8,en;q=0.7"
+					}
+				],
+				"url": {
+					"raw": "https://admin.matfrojd.com/clientGet.php?function=getRecipeCategories",
+					"protocol": "https",
+					"host": [
+						"admin",
+						"matfrojd",
+						"com"
+					],
+					"path": [
+						"clientGet.php"
+					],
+					"query": [
+						{
+							"key": "function",
+							"value": "getRecipeCategories"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getIngredients",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "04494f2c-688b-4cf4-a63e-0fea9701ad1c",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 5 seconds\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(5000);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"ingredients array contains more than 50 items\", function () {\r",
+							"    pm.expect(jsonData.length).to.be.above(50);\r",
+							"});\r",
+							"pm.test(\"ingredients array 5 has a category as number\", function () {\r",
+							"    pm.expect(jsonData[5].category).to.be.a('number');\r",
+							"});\r",
+							"pm.test(\"ingredients array 5 has a categoryName as string\", function () {\r",
+							"    pm.expect(jsonData[5].categoryName).to.be.a('string');\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+					},
+					{
+						"key": "DNT",
+						"value": "1"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Origin",
+						"value": "https://matfrojd.com"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-site"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Referer",
+						"value": "https://matfrojd.com/"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "sv-SE,sv;q=0.9,en-US;q=0.8,en;q=0.7"
+					}
+				],
+				"url": {
+					"raw": "https://admin.matfrojd.com/clientGet.php?function=getIngredients",
+					"protocol": "https",
+					"host": [
+						"admin",
+						"matfrojd",
+						"com"
+					],
+					"path": [
+						"clientGet.php"
+					],
+					"query": [
+						{
+							"key": "function",
+							"value": "getIngredients"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getNutrition",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3af20b4c-0031-47b3-801e-fa25ef48e095",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 5 seconds\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(5000);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"ingredients array contains more than 50 items\", function () {\r",
+							"    pm.expect(jsonData.length).to.be.above(50);\r",
+							"});\r",
+							"pm.test(\"nutrition array 5 has an livsmedel_id as number\", function () {\r",
+							"    pm.expect(jsonData[5].livsmedel_id).to.be.a('number');\r",
+							"});\r",
+							"pm.test(\"nutrition array 5 has a name as string\", function () {\r",
+							"    pm.expect(jsonData[5].name).to.be.a('string');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
+					},
+					{
+						"key": "DNT",
+						"value": "1"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Origin",
+						"value": "https://matfrojd.com"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-site"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Referer",
+						"value": "https://matfrojd.com/"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "sv-SE,sv;q=0.9,en-US;q=0.8,en;q=0.7"
+					}
+				],
+				"url": {
+					"raw": "https://admin.matfrojd.com/clientGet.php?function=getNutrition",
+					"protocol": "https",
+					"host": [
+						"admin",
+						"matfrojd",
+						"com"
+					],
+					"path": [
+						"clientGet.php"
+					],
+					"query": [
+						{
+							"key": "function",
+							"value": "getNutrition"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
