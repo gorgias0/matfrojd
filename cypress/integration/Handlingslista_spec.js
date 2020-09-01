@@ -221,7 +221,7 @@ describe('Handlingslista', () => {
         addIngredientsToList('Test_list', ['Potatis', 'Banan', 'Aprikoser'])
     })
 
-    it.only('adds recipe ingredients to shopping list - TT3-2 AC-3', () => {
+    it('adds recipe ingredients to shopping list - TT3-2 AC-3', () => {
         cy.verifyRecipe('sängkantsmeny', 'Smoothie med variation')
         addCurrentRecipeToNewShoppingList('Recipe_shopping_list')
         cy.verifyIngredientAndAmount(['Banan', 'Yoghurt', 'Florsocker'])

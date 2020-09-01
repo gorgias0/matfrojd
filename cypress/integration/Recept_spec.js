@@ -43,7 +43,7 @@ describe('Recept', () => {
         cy.verifyIngredientAndAmount(['matfett', 'Morot', 'Matlagningsgrädde'])
     })
 
-    it.only('has recipe Basilikamarinerad rostbiff med risotto', () => {
+    it('has recipe Basilikamarinerad rostbiff med risotto', () => {
         cy.verifyRecipe('lunch/Middag', 'Basilikamarinerad rostbiff med risotto')
         verifyRecipeImage('http://admin.matfrojd.com/images/367.jpg')
         cy.verifyIngredientAndAmount(['matfett', 'Kapris', 'Schalottenlök'])
@@ -63,7 +63,7 @@ describe('Recept', () => {
         cy.verifyIngredientAndAmount(['Vetemjöl', 'Mjölk', 'Bröd'])
     })
 
-    it('has recipe Frutti med citruston och bär', () => {
+    it('has recipe Fattiga riddare', () => {
         cy.verifyRecipe('resträtter', 'Frutti med citruston och bär')
         verifyRecipeImage('http://admin.matfrojd.com/images/164.jpg')
         cy.verifyIngredientAndAmount(['Florsocker', 'Gräddfil', 'Vaniljsocker'])
