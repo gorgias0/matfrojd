@@ -51,7 +51,7 @@ describe('Favioriter', () => {
         cy.visit('/?dev')
     })
 
-    it('adds recipe to favorites', () => {
+    it('adds recipe to favorites - TT3-7 AC-1', () => {
         //Arrange
         verifyNotFavorite('Ayran')
 
@@ -62,7 +62,7 @@ describe('Favioriter', () => {
         verifyFavorite('Ayran', 'http://admin.matfrojd.com/images/334.jpg')
     })
 
-    it('removes recipe from favorites', () => {
+    it('removes recipe from favorites - TT3-7 AC-2', () => {
         //Arrange
         recipeToggleFavorit('lunch/Middag', 'Fiskgryta')
         verifyFavorite('Fiskgryta', 'http://admin.matfrojd.com/images/119.jpg')
