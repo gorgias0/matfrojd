@@ -1,4 +1,4 @@
-describe('Favoriter', () => {
+describe('Favoriter, TT3-7', () => {
 
     const backButton = '.rn-1habvwh > .rn-1loqt21 > .rn-11yh6sk > .rn-1272l3b';
 
@@ -74,7 +74,6 @@ describe('Favoriter', () => {
         verifyNotFavorite('Fiskgryta')
     })
 
-    
     /* TODO or unnecessary?
     it('adds multiple recipes to favorite', () => { 
 

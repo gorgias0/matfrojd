@@ -1,4 +1,4 @@
-describe('Handlingslista', () => {
+describe('Handlingslista, TT3-2', () => {
 
     const backButton = '.rn-1habvwh > .rn-1loqt21 > .rn-11yh6sk > .rn-1272l3b';
 

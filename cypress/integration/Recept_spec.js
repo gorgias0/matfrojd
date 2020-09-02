@@ -1,4 +1,4 @@
-describe('Recept', () => {
+describe('Recept, TT3-4', () => {
 
     const verifyRecipeImage = (imageURL) => {
         cy.get('.rn-16y2uox > .rn-1272l3b')

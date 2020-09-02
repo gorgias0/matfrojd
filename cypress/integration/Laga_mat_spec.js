@@ -1,4 +1,4 @@
-describe('Laga mat', () => {
+describe('Laga mat, TT3-6', () => {
 
     const cookRecipe = (category, recipe) => {
         cy.verifyRecipe(category, recipe)
